@@ -68,6 +68,7 @@ routes/
 - Applications Dashboard
 - Application Details Page
 - Edit Application Page
+- Delete Application Page
 
 ---
 
@@ -78,7 +79,7 @@ routes/
 | Create | ✅ Completed |
 | Read | ✅ Completed |
 | Update | ✅ Completed |
-| Delete | 🚧 In Progress |
+| Delete |✅ Completed |
 
 ---
 
