@@ -1,4 +1,4 @@
-# Laravel Playground
+# Recruitment Management System (Laravel)
 
 A Laravel-based Recruitment Management System built as part of my Laravel learning journey.
 
