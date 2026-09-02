@@ -41,9 +41,27 @@
             <td>{{ $application->experience }}</td>
 
             <td>
-    <a class="btn-view" href="/applications/{{ $application->id }}">View</a>
 
-    <a class="btn-edit" href="/applications/{{ $application->id }}/edit">Edit</a>
+    <a class="btn-view"
+       href="/applications/{{ $application->id }}">
+        View
+    </a>
+
+    <a class="btn-edit"
+       href="/applications/{{ $application->id }}/edit">
+        Edit
+    </a>
+
+<form action="/applications/{{ $application->id }}" method="POST" style="display:inline;">
+    @csrf
+    @method('DELETE')
+
+    <button type="submit" class="btn-delete"
+        onclick="return confirm('Delete this application?')">
+        Delete
+    </button>
+</form>
+
 </td>
 
             <td>{{ $application->created_at->format('d/m/Y') }}</td>

@@ -57,7 +57,9 @@ nav strong {
     color: #2563eb;
     font-weight: bold;
 }
-form {
+/* Main Forms */
+
+.main-form {
     background: white;
     padding: 25px;
     border-radius: 10px;
@@ -155,3 +157,45 @@ button:hover {
     background-color: #15803d;
 }
 
+/* Action Buttons */
+
+.btn-view,
+.btn-edit,
+.btn-delete {
+    display: inline-block;
+    padding: 8px 14px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: inherit;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+.btn-view {
+    background-color: #0d6efd;
+}
+
+.btn-view:hover {
+    background-color: #0b5ed7;
+}
+
+.btn-edit {
+    background-color: #198754;
+}
+
+.btn-edit:hover {
+    background-color: #157347;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+}
+
+.btn-delete:hover {
+    background-color: #bb2d3b;
+}
