@@ -1,4 +1,4 @@
-# Recruitment Management System (Laravel)
+# Recruitment Management System 
 
 A Laravel-based Recruitment Management System built as part of my Laravel learning journey.
 
