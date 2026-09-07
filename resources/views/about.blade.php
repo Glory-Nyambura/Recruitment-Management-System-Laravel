@@ -59,7 +59,7 @@
 
         <div class="stats-section">
             <div class="stat-card">
-                <div class="stat-number">2015</div>
+                <div class="stat-number">2026</div>
                 <div class="stat-label">Registered</div>
             </div>
             <div class="stat-card">
