@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('home') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                        <x-talentbridge-logo class="block h-9 w-auto fill-current text-gray-800" />
                     </a>
                 </div>
 
@@ -23,6 +23,18 @@
                     <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
                         {{ __('About') }}
                     </x-nav-link>
+
+                    @auth
+                        @if(auth()->user()->isRecruiter())
+                            <x-nav-link :href="route('recruiter.dashboard')" :active="request()->routeIs('recruiter.*')">
+                                {{ __('Post a Job') }}
+                            </x-nav-link>
+                        @elseif(auth()->user()->isAdmin())
+                            <x-nav-link :href="route('applications')" :active="request()->routeIs('applications')">
+                                {{ __('Applications') }}
+                            </x-nav-link>
+                        @endif
+                    @endauth
                 </div>
             </div>
 

@@ -2,8 +2,18 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
-        <!-- Name -->
+        <!-- Role -->
         <div>
+            <x-input-label for="role" :value="__('Register as')" />
+            <select id="role" name="role" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm text-sm" required>
+                <option value="jobseeker" {{ old('role') == 'jobseeker' ? 'selected' : '' }}>{{ __('Jobseeker') }}</option>
+                <option value="recruiter" {{ old('role') == 'recruiter' ? 'selected' : '' }}>{{ __('Recruiter / Employer') }}</option>
+            </select>
+            <x-input-error :messages="$errors->get('role')" class="mt-2" />
+        </div>
+
+        <!-- Name -->
+        <div class="mt-4">
             <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />

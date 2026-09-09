@@ -34,18 +34,38 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'role' => ['required', 'in:jobseeker,recruiter'],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role' => $request->role,
         ]);
 
         event(new Registered($user));
 
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        return redirect()->intended($this->redirectBasedOnRole());
+    }
+
+    /**
+     * Determine the intended route based on the authenticated user's role.
+     */
+    protected function redirectBasedOnRole(): string
+    {
+        $user = Auth::user();
+
+        if ($user->isRecruiter()) {
+            return route('recruiter.dashboard');
+        }
+
+        if ($user->isAdmin()) {
+            return route('applications');
+        }
+
+        return route('dashboard');
     }
 }

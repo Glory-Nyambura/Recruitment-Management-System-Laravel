@@ -5,8 +5,19 @@
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
-        <!-- Email Address -->
+        <!-- Role -->
         <div>
+            <x-input-label for="role" :value="__('Log in as')" />
+            <select id="role" name="role" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm text-sm" required>
+                <option value="jobseeker" {{ old('role') == 'jobseeker' ? 'selected' : '' }}>{{ __('Jobseeker') }}</option>
+                <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>{{ __('Admin') }}</option>
+                <option value="recruiter" {{ old('role') == 'recruiter' ? 'selected' : '' }}>{{ __('Recruiter / Employer') }}</option>
+            </select>
+            <x-input-error :messages="$errors->get('role')" class="mt-2" />
+        </div>
+
+        <!-- Email Address -->
+        <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />

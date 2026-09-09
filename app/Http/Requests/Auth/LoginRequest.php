@@ -50,6 +50,16 @@ class LoginRequest extends FormRequest
             ]);
         }
 
+        $selectedRole = $this->string('role');
+
+        if (! Auth::user()->hasRole($selectedRole)) {
+            Auth::guard('web')->logout();
+
+            throw ValidationException::withMessages([
+                'role' => 'This account cannot log in as ' . $selectedRole . '.',
+            ]);
+        }
+
         RateLimiter::clear($this->throttleKey());
     }
 

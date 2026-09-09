@@ -54,17 +54,29 @@
 
             <div class="job-section">
                 <h3>Key Responsibilities</h3>
-                <p>{{ $job['key_responsibilities'] }}</p>
+                <ul class="job-bullet-list">
+                    @foreach($job['key_responsibilities'] as $item)
+                        <li>{{ $item }}</li>
+                    @endforeach
+                </ul>
             </div>
 
             <div class="job-section">
                 <h3>Qualifications and Experience</h3>
-                <p>{{ $job['detailed_qualifications'] }}</p>
+                <ul class="job-bullet-list">
+                    @foreach($job['detailed_qualifications'] as $item)
+                        <li>{{ $item }}</li>
+                    @endforeach
+                </ul>
             </div>
 
             <div class="job-section">
                 <h3>Skills</h3>
-                <p>{{ $job['skills'] }}</p>
+                <ul class="job-bullet-list">
+                    @foreach($job['skills'] as $item)
+                        <li>{{ $item }}</li>
+                    @endforeach
+                </ul>
             </div>
         </div>
 

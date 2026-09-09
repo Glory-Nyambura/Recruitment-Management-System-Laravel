@@ -977,6 +977,18 @@ button:hover {
     line-height: 1.7;
 }
 
+.job-bullet-list {
+    margin: 0;
+    padding-left: 22px;
+    font-size: 15px;
+    color: #475569;
+    line-height: 1.8;
+}
+
+.job-bullet-list li {
+    margin-bottom: 6px;
+}
+
 .job-cta {
     text-align: center;
 }
