@@ -151,7 +151,7 @@ Route::get('/careers/{position}', function ($position) {
 
 Route::post('/careers/apply', function (Request $request) {
 
-    $request->validate([
+    $validated = $request->validate([
         'full_name' => 'required',
         'email' => 'required|email',
         'phone' => 'required',
@@ -163,7 +163,10 @@ Route::post('/careers/apply', function (Request $request) {
         'cover_letter' => 'required|min:20',
     ]);
 
-    $application = Application::create($request->all());
+    $application = Application::create([
+        ...$validated,
+        'user_id' => $request->user()?->id,
+    ]);
 
     Mail::to($application->email)->send(
         new ApplicationReceived($application)
